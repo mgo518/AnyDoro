@@ -60,13 +60,16 @@ function formatTime(seconds) {
         alarm();
       }
     }, 950);
-    removeButton();
+    removeStartButton();
+    appearPauseButton();
   }
   
   function pauser() {
     clearInterval(interval);
-    appearButton();
-    my
+    myAudio.pause();
+    myAudio.currentTime = 0
+    appearStartButton();
+    removePauseButton();
   }
   
   function reseter() {
@@ -75,20 +78,26 @@ function formatTime(seconds) {
     duration = 0;
     myAudio.pause();
     myAudio.currentTime = 0
-    appearButton();
+    appearStartButton();
+    removePauseButton();
   }
 
-  function removeButton() {
-      playButton.style.display = "none"
+  function removeStartButton() {
+    playButton.style.display = "none"
   }
 
-  function appearButton() {
-      playButton.style.display = "inline"
+  function removePauseButton() {
+    pauseButton.style.display = "none"
   }
 
-  function show() {
-      printshow(session - duration)
+  function appearStartButton() {
+    playButton.style.display = "inline"
   }
+
+  function appearPauseButton() {
+    pauseButton.style.display = "inline"
+  }
+
 
   function alarm() {
     myAudio.play();
@@ -100,9 +109,7 @@ function formatTime(seconds) {
 let playButton = document.getElementById("start-button");
 let pauseButton = document.getElementById("stop-button");
 let resetButton = document.getElementById("reset-button");
-let showButton = document.getElementById("show-button");
 
 playButton.addEventListener("click", starter);
 pauseButton.addEventListener("click", pauser);
 resetButton.addEventListener("click", reseter);
-showButton.addEventListener("click", show);
