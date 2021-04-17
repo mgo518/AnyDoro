@@ -12,7 +12,6 @@
 function formatTime(seconds) {
 
      
-    let abs
     let diffInHrs = seconds / 3600000;
     let hour = Math.floor(diffInHrs);
   
