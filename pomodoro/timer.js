@@ -47,19 +47,32 @@ function formatTime(seconds) {
       duration = Date.now() - start;
       print(formatTime(duration));
     }, 10);
+    removeButton();
   }
   
   function pauser() {
     clearInterval(interval);
+    appearButton();
   }
   
   function reseter() {
     clearInterval(interval);
     print("00:00:00");
     duration = 0;
+    appearButton();
   }
 
-// Event Listeners
+  function removeButton() {
+      playButton.style.display = "none"
+  }
+
+  function appearButton() {
+      playButton.style.display = "inline"
+  }
+
+
+
+// Event Listeners - Checks to see if html elements has been activated --> run respective function
 
 let playButton = document.getElementById("start-button");
 let pauseButton = document.getElementById("stop-button");
