@@ -8,6 +8,17 @@ button {
     font-size: medium;
     display: inline;
   }
+
+  button.interval {
+    height: 30px;
+    width: 80px;
+    outline: none;
+    margin: 10px;
+    border: none;
+    border-radius: 15px 15px;
+    font-size: medium;
+    display: inline;
+  }
   
   button.current {
     box-shadow: 0 0 0 2px white,
@@ -39,4 +50,8 @@ h1.title {
 
 span.time {
     font-size: xx-large;
+}
+
+a {
+  text-decoration: none;
 }
