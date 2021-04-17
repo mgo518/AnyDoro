@@ -12,6 +12,7 @@
 function formatTime(seconds) {
 
      
+    let abs
     let diffInHrs = seconds / 3600000;
     let hour = Math.floor(diffInHrs);
   
@@ -29,6 +30,8 @@ function formatTime(seconds) {
     return `${formatHour}:${formatMin}:${formatSec}`;
   }
 
+  // Currently Setting 1 min at current time (in milliseconds)
+  let session = 60000;
   let start;
   let duration = 0;
   let interval;
@@ -38,13 +41,17 @@ function formatTime(seconds) {
   function print(txt) {
     document.getElementById("time-display").innerHTML = txt;
   }
+
+  function printshow(txt) {
+    document.getElementById("session-display").innerHTML = txt;
+  }
   
   // Create "start", "pause" and "reset" functions
   
   function starter() {
     start = Date.now() - duration;
     interval = setInterval(function printTime() {
-      duration = Date.now() - start;
+      duration = session - (Date.now() - start);
       print(formatTime(duration));
     }, 10);
     removeButton();
@@ -57,7 +64,7 @@ function formatTime(seconds) {
   
   function reseter() {
     clearInterval(interval);
-    print("00:00:00");
+    print("0:01:00");
     duration = 0;
     appearButton();
   }
@@ -70,6 +77,9 @@ function formatTime(seconds) {
       playButton.style.display = "inline"
   }
 
+  function show() {
+      printshow(duration)
+  }
 
 
 // Event Listeners - Checks to see if html elements has been activated --> run respective function
@@ -77,7 +87,9 @@ function formatTime(seconds) {
 let playButton = document.getElementById("start-button");
 let pauseButton = document.getElementById("stop-button");
 let resetButton = document.getElementById("reset-button");
+let showButton = document.getElementById("show-button");
 
 playButton.addEventListener("click", starter);
 pauseButton.addEventListener("click", pauser);
 resetButton.addEventListener("click", reseter);
+showButton.addEventListener("click", show);
