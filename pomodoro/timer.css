@@ -9,6 +9,10 @@ button {
     display: inline;
   }
 
+  h2 {
+    text-align: center;
+  }
+
   button.interval {
     height: 30px;
     width: 80px;
