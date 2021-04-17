@@ -30,10 +30,12 @@ function formatTime(seconds) {
   }
 
   // Currently Setting 1 min at current time (in milliseconds)
-  let session = 60000;
+  let session = 10000;
   let start;
   var duration = 0;
   let interval;
+  var myAudio = new Audio("sounds/asus-yamete-kudasai.mp3");
+
   
   // Create function to modify innerHTML
   
@@ -52,6 +54,11 @@ function formatTime(seconds) {
     interval = setInterval(function printTime() {
       duration = Math.max(duration, (Date.now() - start));
       print(formatTime(session - duration));
+      if (session - duration < 1000) {
+        clearInterval(interval);
+        print("0:00:00");
+        alarm();
+      }
     }, 950);
     removeButton();
   }
@@ -59,12 +66,14 @@ function formatTime(seconds) {
   function pauser() {
     clearInterval(interval);
     appearButton();
+    my
   }
   
   function reseter() {
     clearInterval(interval);
     print("0:01:00");
     duration = 0;
+    myAudio.pause();
     appearButton();
   }
 
@@ -77,7 +86,11 @@ function formatTime(seconds) {
   }
 
   function show() {
-      printshow(duration)
+      printshow(session - duration)
+  }
+
+  function alarm() {
+    myAudio.play();
   }
 
 
