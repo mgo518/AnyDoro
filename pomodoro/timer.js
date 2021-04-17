@@ -32,7 +32,7 @@ function formatTime(seconds) {
   // Currently Setting 1 min at current time (in milliseconds)
   let session = 60000;
   let start;
-  let duration = 0;
+  var duration = 0;
   let interval;
   
   // Create function to modify innerHTML
@@ -50,9 +50,9 @@ function formatTime(seconds) {
   function starter() {
     start = Date.now() - duration;
     interval = setInterval(function printTime() {
-      duration = session - (Date.now() - start);
-      print(formatTime(duration));
-    }, 10);
+      duration = Math.max(duration, (Date.now() - start));
+      print(formatTime(session - duration));
+    }, 950);
     removeButton();
   }
   
