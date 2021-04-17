@@ -74,6 +74,7 @@ function formatTime(seconds) {
     print("0:01:00");
     duration = 0;
     myAudio.pause();
+    myAudio.currentTime = 0
     appearButton();
   }
 
