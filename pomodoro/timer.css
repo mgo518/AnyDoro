@@ -95,7 +95,7 @@ a {
 .bg-category button {
   width: 100px;
   height: 50px;
-  background-size: 100px 50px;
+  border: 1px solid grey;
   font-size: large;
   font-family: monospace;
   
@@ -109,7 +109,7 @@ a {
 }
 
 .interval-presets {
-  width: 300px;
+  width: 400px;
 }
 
 .interval-presets button {
