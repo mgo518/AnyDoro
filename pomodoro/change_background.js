@@ -1,7 +1,29 @@
 //Sets background color to given thingy ma bobber
+
+chrome.storage.local.get('storagecolor', function(data){
+    console.log(data.storagecolor);
+    document.body.style.backgroundColor = data.storagecolor;
+  });
+  
+  
+  chrome.storage.local.get('storagewallpaper', function(data){
+    console.log(data.storagewallpaper);
+    document.body.style.backgroundImage = data.storagewallpaper;
+    if (data.storagewallpaper) {
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundAttachment = "fixed";
+        document.body.style.backgroundSize = "100% 100%";
+    }
+    });
+  
+
 function set_background_color(desired_color){
     document.body.style.backgroundImage = 'none';
     document.body.style.backgroundColor = desired_color;
+    colorStorage = desired_color;
+    wallpaperStorage = 'none';
+    chrome.storage.local.set({ 'storagecolor': colorStorage }, function(){});
+    chrome.storage.local.set({'storagewallpaper': wallpaperStorage }, function(){});
 }
 
 function set_background_picture(img_name){
@@ -10,6 +32,10 @@ function set_background_picture(img_name){
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundAttachment = "fixed";
     document.body.style.backgroundSize = "100% 100%";
+    colorStorage = "transparent";
+    wallpaperStorage = "url('/images/" + img_name + "')";
+    chrome.storage.local.set({ 'storagecolor': colorStorage }, function(){});
+    chrome.storage.local.set({'storagewallpaper': wallpaperStorage }, function(){});
 }
 
 function set_custom_background(img_file){

@@ -2,6 +2,17 @@ let timerID;
 let timerTime;
 let isPausedStorage;
 let durationStorage;
+let colorStorage = "blue";
+let wallpaperStorage = "none";
+
+
+chrome.runtime.onInstalled.addListener(() => {
+  console.log("This Ran")
+
+  chrome.storage.local.set({ 'storagecolor': colorStorage }, function(){});
+  
+  chrome.storage.local.set({'storagewallpaper': wallpaperStorage }, function(){});
+});
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.cmd === 'START_TIMER') {
@@ -12,3 +23,4 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     sendResponse({ endTime: timerTime, isPaused: isPausedStorage, duration: durationStorage });
   }
 });
+
