@@ -2,6 +2,11 @@
 // 1. if you accidentally press start twice, if get's hell fked
 // 2. when the extension is closed, all the time it tracked is lost. Will prob need to use chrome.storage api
 
+document.body.style.backgroundImage = "url('/images/break_2.jpg')";
+document.body.style.backgroundRepeat = "no-repeat";
+      document.body.style.backgroundAttachment = "fixed";
+      document.body.style.backgroundSize = "100% 100%";
+
 // Set the background to the correct image
 chrome.storage.local.get('storagecolor', function(data){
   console.log(data.storagecolor);
@@ -13,15 +18,7 @@ chrome.storage.local.get('storagebtime', function(data){
   session = data.storagebtime;
 });
 
-chrome.storage.local.get('storagewallpaper', function(data){
-  console.log(data.storagewallpaper);
-  document.body.style.backgroundImage = data.storagewallpaper;
-  if (data.storagewallpaper) {
-    document.body.style.backgroundRepeat = "no-repeat";
-    document.body.style.backgroundAttachment = "fixed";
-    document.body.style.backgroundSize = "100% 100%";
-}
-  });
+
 
 // Convert The Time to the correct format from seconds
 
