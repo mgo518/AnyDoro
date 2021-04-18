@@ -10,8 +10,8 @@ chrome.storage.local.get('storagecolor', function(data){
 
 
 // Set the session variable to storage session value
-chrome.storage.local.get('storagesession', function(data){
-  session = data.storagesession;
+chrome.storage.local.get('storagewtime', function(data){
+  session = data.storagewtime;
 });
 
 
@@ -61,7 +61,7 @@ function formatTime(seconds) {
   }
 
   // Currently Setting 1 min at current time (in milliseconds)
-  let session = 100000;
+  let session;
   let start;
   var duration = 0;
   let interval;
