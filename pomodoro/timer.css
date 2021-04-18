@@ -36,7 +36,7 @@ div.circle {
   color: black;
   margin-left: 95px;
   margin-right: 95px;
-  border: none;
+  border: 1px solid peru;
   font-family: monospace;
   border-radius: 15px 15px;
   text-align: center;
@@ -51,20 +51,12 @@ div.timer-buttons {
 .timer-buttons button {
   background-color: lightsalmon;
   opacity: 0.7;
-  border: 2px;
+  border: 1px solid;
 }
 
 .timer-buttons button:hover {
   opacity: 1;
   background-color: lightcoral;
-}
-
-.gear {
-  background-color: transparent;
-}
-
-button.gear:hover {
-  background-color: mintcream;
 }
 
 #close-image img {
@@ -97,12 +89,13 @@ a {
 
 .bg-category {
   width: 400px;
-  background-size: 100%;
+  
 }
 
 .bg-category button {
   width: 100px;
   height: 50px;
+  background-size: 100px 50px;
   font-size: large;
   font-family: monospace;
   
