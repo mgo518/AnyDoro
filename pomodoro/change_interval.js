@@ -31,15 +31,26 @@ function setBreakTime(time) {
   window.location.href = "popup.html";
 }
 
-let set30min = document.getElementById("interval-30m");
-let set45min = document.getElementById("interval-45m");
-let set1hr = document.getElementById("interval-1h");
-let set2hr = document.getElementById("interval-2h");
+let setwork30min = document.getElementById("work-30m");
+let setwork45min = document.getElementById("work-45m");
+let setwork1hr = document.getElementById("work-1h");
+let setwork2hr = document.getElementById("work-2h");
+
+let setbreak2m = document.getElementById("break-2m");
+let setbreak5m = document.getElementById("break-5m");
+let setbreak10m = document.getElementById("break-10m");
+let setbreak15m = document.getElementById("break-15m");
+
 let st = document.getElementById("submit-times");
 
-set30min.addEventListener("click", function() {setTime(1800000);})
-set45min.addEventListener("click", function() {setTime(2700000);})
-set1hr.addEventListener("click", function() {setTime(3600000);})
-set2hr.addEventListener("click", function() {setTime(3600000 * 2);})
+setwork30min.addEventListener("click", function() {setWorkTime(1800000);})
+setwork45min.addEventListener("click", function() {setWorkTime(2700000);})
+setwork1hr.addEventListener("click", function() {setWorkTime(3600000);})
+setwork2hr.addEventListener("click", function() {setWorkTime(3600000 * 2);})
 
-st.addEventListener("click", function() {setTime(60000 * document.querySelector("#wtime").value);})
+setbreak2m.addEventListener("click", function() {setBreakTime(1800000);})
+setbreak5m.addEventListener("click", function() {setBreakTime(2700000);})
+setbreak10m.addEventListener("click", function() {setBreakTime(3600000);})
+setbreak15m.addEventListener("click", function() {setBreakTime(3600000 * 2);})
+
+st.addEventListener("click", function() {setWorkTime(60000 * document.querySelector("#wtime").value);})
