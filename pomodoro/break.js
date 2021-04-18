@@ -5,6 +5,26 @@
 document.body.style.backgroundImage = "url('/images/break_2.jpg')";
 
 
+// Set the background to the correct image
+chrome.storage.local.get('storagecolor', function(data){
+  console.log(data.storagecolor);
+  document.body.style.backgroundColor = data.storagecolor;
+});
+
+// Set the session variable to storage session value
+chrome.storage.local.get('storagebtime', function(data){
+  session = data.storagebtime;
+});
+
+chrome.storage.local.get('storagewallpaper', function(data){
+  console.log(data.storagewallpaper);
+  document.body.style.backgroundImage = data.storagewallpaper;
+  if (data.storagewallpaper) {
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundAttachment = "fixed";
+    document.body.style.backgroundSize = "100% 100%";
+}
+  });
 
 // Convert The Time to the correct format from seconds
 
@@ -29,7 +49,7 @@ function formatTime(seconds) {
   }
 
   // Currently Setting 1 min at current time (in milliseconds)
-  let session = 10000;
+  let session;
   let start;
   var duration = 0;
   let interval;

@@ -15,19 +15,15 @@ chrome.storage.local.get('storagewallpaper', function(data){
     document.body.style.backgroundSize = "100% 100%";
 }
   });
-
-function setCustomTime() {
-  setTime(document.querySelector("#wtime").nodeValue);
-}
   
 
 function setWorkTime(time) {
-    chrome.storage.local.set({ 'storagesession': time }, function(){});
+    chrome.storage.local.set({ 'storagewtime': time }, function(){});
     window.location.href = "popup.html";
 }
 
 function setBreakTime(time) {
-  chrome.storage.local.set({ 'storage': time }, function(){});
+  chrome.storage.local.set({ 'storagebtime': time }, function(){});
   window.location.href = "popup.html";
 }
 
@@ -48,9 +44,12 @@ setwork45min.addEventListener("click", function() {setWorkTime(2700000);})
 setwork1hr.addEventListener("click", function() {setWorkTime(3600000);})
 setwork2hr.addEventListener("click", function() {setWorkTime(3600000 * 2);})
 
-setbreak2m.addEventListener("click", function() {setBreakTime(1800000);})
-setbreak5m.addEventListener("click", function() {setBreakTime(2700000);})
-setbreak10m.addEventListener("click", function() {setBreakTime(3600000);})
-setbreak15m.addEventListener("click", function() {setBreakTime(3600000 * 2);})
+setbreak2m.addEventListener("click", function() {setBreakTime(120000);})
+setbreak5m.addEventListener("click", function() {setBreakTime(300000);})
+setbreak10m.addEventListener("click", function() {setBreakTime(600000);})
+setbreak15m.addEventListener("click", function() {setBreakTime(900000);})
 
-st.addEventListener("click", function() {setWorkTime(60000 * document.querySelector("#wtime").value);})
+st.addEventListener("click", 
+function() {
+  setWorkTime(60000 * document.querySelector("#wtime").value);
+  setBreakTime(60000 * document.querySelector("#btime").value);})
