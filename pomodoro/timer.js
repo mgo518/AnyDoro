@@ -4,8 +4,15 @@
 
 
 
-
-
+chrome.runtime.sendMessage({ cmd: 'GET_TIME' }, response => {
+  if (response.endTime && !response.isPaused) {
+    const endTime = new Date(response.endTime);
+    startTimer(Date.now() - (endTime - session));
+  } else {
+    duration = response.duration || 0;
+    print(formatTime(session - duration))
+  }
+});
 
 // Convert The Time to the correct format from seconds
 
@@ -30,7 +37,7 @@ function formatTime(seconds) {
   }
 
   // Currently Setting 1 min at current time (in milliseconds)
-  let session = 10000;
+  let session = 100000;
   let start;
   var duration = 0;
   let interval;
@@ -49,10 +56,10 @@ function formatTime(seconds) {
   
   // Create "start", "pause" and "reset" functions
   
-  function starter() {
-    start = Date.now() - duration;
+  function startTimer(timeElapsed) {
+    start = Date.now() - timeElapsed;
     interval = setInterval(function printTime() {
-      duration = Math.max(duration, (Date.now() - start));
+      duration = Math.max(timeElapsed, (Date.now() - start));
       print(formatTime(session - duration));
       if (session - duration < 1000) {
         clearInterval(interval);
@@ -63,16 +70,27 @@ function formatTime(seconds) {
     removeStartButton();
     appearPauseButton();
   }
+
+  function startTime() {
+    chrome.runtime.sendMessage({ cmd: 'START_TIMER', when: session - duration + Date.now(), duration: duration, isPaused: false });
+    startTimer(duration);
+  }
   
-  function pauser() {
+  function pauseTimer() {
+    console.log(duration);
     clearInterval(interval);
     myAudio.pause();
     myAudio.currentTime = 0
     appearStartButton();
     removePauseButton();
   }
+
+  function pauseTime() {
+    chrome.runtime.sendMessage({ cmd: 'START_TIMER', when: session - duration + Date.now(), duration: duration, isPaused: true });
+    pauseTimer();
+  }
   
-  function reseter() {
+  function resetTimer() {
     clearInterval(interval);
     print("0:01:00");
     duration = 0;
@@ -98,11 +116,9 @@ function formatTime(seconds) {
     pauseButton.style.display = "inline"
   }
 
-
   function alarm() {
     myAudio.play();
   }
-
 
 // Event Listeners - Checks to see if html elements has been activated --> run respective function
 
@@ -110,6 +126,6 @@ let playButton = document.getElementById("start-button");
 let pauseButton = document.getElementById("stop-button");
 let resetButton = document.getElementById("reset-button");
 
-playButton.addEventListener("click", starter);
-pauseButton.addEventListener("click", pauser);
-resetButton.addEventListener("click", reseter);
+playButton.addEventListener("click", startTime);
+pauseButton.addEventListener("click", pauseTime);
+resetButton.addEventListener("click", resetTimer);
