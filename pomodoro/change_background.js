@@ -48,33 +48,31 @@ function set_custom_background(img_file){
 }
 
 
-let background_1_button = document.getElementById("background-1");
-let background_2_button = document.getElementById("background-2");
-let background_3_button = document.getElementById("background-3");
-let background_4_button = document.getElementById("background-4");
-let background_5_button = document.getElementById("background-5");
-let background_6_button = document.getElementById("background-6");
-let background_7_button = document.getElementById("background-7");
-let background_8_button = document.getElementById("background-8");
-let background_9_button = document.getElementById("background-9");
-let background_10_button = document.getElementById("background-10");
-let background_11_button = document.getElementById("background-11");
-let background_12_button = document.getElementById("background-12");
+let bg_1_button = document.getElementById("bg-1");
+let bg_2_button = document.getElementById("bg-2");
+let bg_3_button = document.getElementById("bg-3");
+let bg_4_button = document.getElementById("bg-4");
+let bg_5_button = document.getElementById("bg-5");
+let bg_6_button = document.getElementById("bg-6");
+let bg_7_button = document.getElementById("bg-7");
+let bg_8_button = document.getElementById("bg-8");
+let bg_9_button = document.getElementById("bg-9");
+let bg_10_button = document.getElementById("bg-10");
+let bg_11_button = document.getElementById("bg-11");
+let bg_12_button = document.getElementById("bg-12");
 
 
+bg_1_button.addEventListener("click", function() {set_background_color("aquamarine");});
+bg_2_button.addEventListener("click", function() {set_background_color("cadetblue");});
+bg_3_button.addEventListener("click", function() {set_background_color("crimson");});
+bg_4_button.addEventListener("click", function() {set_background_color("darkseagreen");});
+bg_5_button.addEventListener("click", function() {set_background_color("blanchedalmond");});
+bg_6_button.addEventListener("click", function() {set_background_color("plum");});
 
+bg_7_button.addEventListener("click", function() {set_background_picture("zero_two_4.jpg");});
+bg_8_button.addEventListener("click", function() {set_background_picture("tanjiro.jpg");});
+bg_9_button.addEventListener("click", function() {set_background_picture("your_name.jpg");});
 
-background_1_button.addEventListener("click", function() {set_background_color("aquamarine");});
-background_2_button.addEventListener("click", function() {set_background_color("cadetblue");});
-background_3_button.addEventListener("click", function() {set_background_color("crimson");});
-background_4_button.addEventListener("click", function() {set_background_color("darkseagreen");});
-background_5_button.addEventListener("click", function() {set_background_color("blanchedalmond");});
-background_6_button.addEventListener("click", function() {set_background_color("plum");});
-
-background_7_button.addEventListener("click", function() {set_background_picture("zero_two_4.jpg");});
-background_8_button.addEventListener("click", function() {set_background_picture("tanjiro.jpg");});
-background_9_button.addEventListener("click", function() {set_background_picture("your_name.jpg");});
-
-background_10_button.addEventListener("click", function() {set_background_picture("nature.jpg");});
-background_11_button.addEventListener("click", function() {set_background_picture("modern.webp");});
-background_12_button.addEventListener("click", function() {set_background_picture("abstract.jpg");});
+bg_10_button.addEventListener("click", function() {set_background_picture("nature.jpg");});
+bg_11_button.addEventListener("click", function() {set_background_picture("modern.webp");});
+bg_12_button.addEventListener("click", function() {set_background_picture("abstract.jpg");});
