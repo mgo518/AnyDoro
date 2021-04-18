@@ -58,8 +58,7 @@ function formatTime(seconds) {
         clearInterval(interval);
         print("0:00:00");
         alarm();
-        setTimeout(() => {window.location.href = "break.html";}, 5000);
-        
+        setTimeout(() => {window.location.href = "popup.html";}, 5000);
       }
     }, 950);
     removeStartButton();
@@ -112,9 +111,7 @@ function formatTime(seconds) {
 // Event Listeners - Checks to see if html elements has been activated --> run respective function
 let playButton = document.getElementById("start-button");
 let pauseButton = document.getElementById("stop-button");
-let resetButton = document.getElementById("reset-button");
 
 
 playButton.addEventListener("click", starter)
 pauseButton.addEventListener("click", pauser)
-resetButton.addEventListener("click", reseter)
