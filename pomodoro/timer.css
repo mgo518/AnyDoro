@@ -9,6 +9,10 @@ button {
     display: inline;
   }
 
+  h2 {
+    text-align: center;
+  }
+
   button.interval {
     height: 30px;
     width: 80px;
@@ -58,4 +62,49 @@ span.time {
 
 a {
   text-decoration: none;
+}
+
+body{
+  background-color: aliceblue;
+}
+
+.background-category {
+  width: 400px;
+}
+
+.background-category button {
+  width: 100px;
+  height: 50px;
+  text-align: center;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+
+.background-category button:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+.interval-presets {
+  width: 300px;
+}
+
+.interval-presets button {
+  opacity: 1;
+  filter: alpha(opacity=70);
+}
+
+.interval-presets button:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+#background-9 {
+  color: white;
+}
+#background-12 {
+  color: white;
+}
+#background-10 {
+  color: white;
 }
