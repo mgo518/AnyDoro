@@ -2,7 +2,7 @@ let timerID;
 let timerTime;
 let isPausedStorage;
 let durationStorage;
-let colorStorage = "blue";
+let colorStorage = "aliceblue";
 let wallpaperStorage = "none";
 let sessionStorage = 0;
 

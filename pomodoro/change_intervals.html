@@ -17,12 +17,17 @@
 
         <div class="custom-time">
             <p>Custom Time Interval</p>
-            <form action="/action_page.php">
-                <label for="work-interval">Work time (minutes): </label>
+            <form id="frm1">
+                Work Time (Minutes): <input type="number" id="wtime"><br>
+                Break Time (Minutes): <input type="number" id="btime"><br><br>
+                <input type="button" onclick="setCustomTime()" value="Submit">
+
+
+                <!-- <label for="work-interval">Work time (minutes): </label>
                 <input type="number" id="work-interval" name="work-interval"><br><br>
                 <label for="break-interval">Break time (minutes): </label>
                 <input type="number" id="break-interval" name="break-interval"><br><br>
-                <input type="submit" value="Set Time">
+                <input type="submit" value="Set Time"> -->
             </form>
         </div>
         

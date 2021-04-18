@@ -16,6 +16,13 @@ chrome.storage.local.get('storagewallpaper', function(data){
 }
   });
 
+function setCustomTime() {
+  let arr = Array.from(document.querySelectorAll("#frm1 input").value).reduce(
+    (acc, input) => ({...acc, [input.id]: input.value}), {});
+  setTime(arr['wtime']);
+}
+  
+
 function setTime(time) {
     chrome.storage.local.set({ 'storagesession': time }, function(){});
     window.location.href = "popup.html";
