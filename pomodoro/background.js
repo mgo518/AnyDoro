@@ -4,14 +4,14 @@ let isPausedStorage;
 let durationStorage;
 let colorStorage = "blue";
 let wallpaperStorage = "none";
-
+let sessionStorage = 0;
 
 chrome.runtime.onInstalled.addListener(() => {
   console.log("This Ran")
 
   chrome.storage.local.set({ 'storagecolor': colorStorage }, function(){});
-  
   chrome.storage.local.set({'storagewallpaper': wallpaperStorage }, function(){});
+  chrome.storage.local.set({'storagesession': sessionStorage }, function(){});
 });
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {

@@ -9,6 +9,12 @@ chrome.storage.local.get('storagecolor', function(data){
 });
 
 
+// Set the session variable to storage session value
+chrome.storage.local.get('storagesession', function(data){
+  session = data.storagesession;
+});
+
+
 chrome.storage.local.get('storagewallpaper', function(data){
   console.log(data.storagewallpaper);
   document.body.style.backgroundImage = data.storagewallpaper;
