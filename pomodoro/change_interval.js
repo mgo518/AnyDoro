@@ -15,16 +15,13 @@ chrome.storage.local.get('storagewallpaper', function(data){
     document.body.style.backgroundSize = "100% 100%";
 }
   });
-  
 
 function setWorkTime(time) {
     chrome.storage.local.set({ 'storagewtime': time }, function(){});
-    window.location.href = "popup.html";
 }
 
 function setBreakTime(time) {
   chrome.storage.local.set({ 'storagebtime': time }, function(){});
-  window.location.href = "popup.html";
 }
 
 let setwork30min = document.getElementById("work-30m");
@@ -51,5 +48,12 @@ setbreak15m.addEventListener("click", function() {setBreakTime(900000);})
 
 st.addEventListener("click", 
 function() {
-  setWorkTime(60000 * document.querySelector("#wtime").value);
-  setBreakTime(60000 * document.querySelector("#btime").value);})
+  let wtime = 60000 * document.querySelector("#wtime").value;
+  if (wtime) {
+    setWorkTime(60000 * document.querySelector("#wtime").value);
+  }
+
+  let btime = 60000 * document.querySelector("#btime").value;
+  if (btime) {
+    setBreakTime(60000 * document.querySelector("#btime").value)
+  };})
