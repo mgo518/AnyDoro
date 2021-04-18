@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="options.css"> 
+        <link rel="stylesheet" href="timer.css"> 
     </head>
     <body>
+        <style></style>
         <h1 class = "title">Settings</h1>
 
         <div class="circle">
             <span class="time" id="time-display">00:00:00</span>
         </div>
-
+        
         <div class="background-presets">
-            <p>Backgrounds</p>
+            <div class="background-category">
+                <p>Solids</p>
             <button id="background-1">Background 1</button>
             <button id="background-2">Background 2</button>
             <button id="background-3">Background 3</button>
             <button id="background-4">Background 4</button>
             <button id="background-5">Background 5</button>
             <button id="background-6">Background 6</button>
-        </div>
-
-        <div class="custom-background">
-            <p>Import Background</p>
-            <form action="/action_page.php">
-                <label for="custom_background">Work Time: </label>
-                <input type="file" id="custom_background" name="custom_background" accept="image/*"><br><br>
-                <input type="submit" value="Submit">
-            </form>
+            </div>
             
-            <p>Click on the submit button to submit the form.</p>
+            <div class="background-category">
+                <p>Anime</p>
+            <button id="background-7">Background 7</button>
+            <button id="background-8">Background 8</button>
+            <button id="background-9">Background 9</button>
+            </div>
+            
+            <div class="background-category">
+                <p>Other</p>
+                <button id="background-10">Background 10</button>
+                <button id="background-11">Background 11</button>
+                <button id="background-12">Background 12</button>
+            </div>
+            
         </div>
 
         
