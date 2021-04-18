@@ -8,27 +8,28 @@
 
 
         <div class="interval-presets">
-            <p>Time Intervals</p>
+            <p>Work Time Intervals</p>
             <button id="interval-30m">30 min</button>
             <button id="interval-45m">45 min</button>
             <button id="interval-1h">1 hr</button>
             <button id="interval-2h">2 hrs</button>
         </div>
 
+        <div class="interval-presets">
+            <p>Break Time Intervals</p>
+            <button id="break-2m">2 min</button>
+            <button id="break-5m">5 min</button>
+            <button id="break-10m">10 min</button>
+            <button id="break-15m">15 min</button>
+        </div>
+
         <div class="custom-time">
             <p>Custom Time Interval</p>
-            <form id="frm1">
-                Work Time (Minutes): <input type="number" id="wtime"><br>
-                Break Time (Minutes): <input type="number" id="btime"><br><br>
-                <input type="button" onclick="setCustomTime()" value="Submit">
-
-
-                <!-- <label for="work-interval">Work time (minutes): </label>
-                <input type="number" id="work-interval" name="work-interval"><br><br>
-                <label for="break-interval">Break time (minutes): </label>
-                <input type="number" id="break-interval" name="break-interval"><br><br>
-                <input type="submit" value="Set Time"> -->
-            </form>
+            <label for="wtime">Work Time (Minutes)</label>
+            <input type="number" id="wtime">
+            <label for="btime">Break Time (Minutes)</label>
+            <input type="number" id="btime">
+            <button id="submit-times">Submit</button>
         </div>
         
         <a href="/popup.html" class="button"><img src="/images/back_arrow.png" width = "25" height = "25"></a>
